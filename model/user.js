@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
   socialLogins: {type: Array, default: []}
 }, { timestamps: true })
 
-UserSchema.pre('save', next => {
+UserSchema.pre('save', function (next) {
   bcrypt.hash(this.password, 13)
     .then(encrypted => {
       this.password = encrypted
