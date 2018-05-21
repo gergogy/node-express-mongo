@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
   username: {type: String, index: {unique: true}, required: [true, 'Username missing']},
   password: {type: String, required: [true, 'Password missing']},
-  email: {type: String, index: {unique: true}, default: null},
+  // email: {type: String, index: {unique: true}, default: null},
   socialLogins: {type: Array, default: []}
 }, { timestamps: true })
 

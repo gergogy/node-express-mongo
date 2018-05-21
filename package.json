@@ -7,7 +7,7 @@
     "clean:css": "rm -Rf ./assets/css",
     "dev": "npm run build && nodemon index",
     "build": "npm run clean:css && npm run build:sass",
-    "build:sass": "node-sass styles -o assets/css",
+    "build:sass": "node-sass styles -o assets/css --output-style compressed",
     "test": "snyk test"
   },
   "repository": {
