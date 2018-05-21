@@ -1,0 +1,9 @@
+mixin message(header, dismiss)
+  .message(class=attributes.modifiers)
+    if header
+      .message-header= header
+        if dismiss
+          button.delete(class=attributes.size aria-label="delete")
+    if block
+      .message-body
+        block

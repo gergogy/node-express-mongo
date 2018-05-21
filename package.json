@@ -1,0 +1,45 @@
+{
+  "name": "nepm",
+  "version": "0.1.0",
+  "description": "NodeJs-Express-Pug-MongoDB stack with Bulma, SASS compile",
+  "main": "index.js",
+  "scripts": {
+    "clean:css": "rm -Rf ./assets/css",
+    "dev": "npm run build && nodemon index",
+    "build": "npm run clean:css && npm run build:sass",
+    "build:sass": "node-sass styles -o assets/css",
+    "test": "snyk test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gergogy/sharothings.git"
+  },
+  "keywords": [
+    "share"
+  ],
+  "author": "Gergő Gyulai <blush4rk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gergogy/sharothings/issues"
+  },
+  "homepage": "https://github.com/gergogy/sharothings#readme",
+  "devDependencies": {
+    "nodemon": "^1.17.4",
+    "webpack": "^4.8.3",
+    "snyk": "^1.80.1"
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.1",
+    "connect-mongo": "^2.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "file-stream-rotator": "^0.2.1",
+    "mongoose": "^5.1.1",
+    "morgan": "^1.9.0",
+    "node-sass": "^4.9.0",
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0"
+  }
+}

@@ -1,0 +1,23 @@
+doctype html
+html.has-fixed-navbar-top
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    block head_scripts
+    block head_styles
+      each href in ['css/main.css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css']
+        link(rel="stylesheet" href=asset(href))
+  body
+    include includes/nav.pug
+    include includes/forms/register.pug
+    include includes/forms/login.pug
+    block header
+      include head.pug
+    main
+      block content
+    include footer.pug
+    block body_scripts
+      script(defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js")
+      each src in ['js/polyfills.js', 'js/0-modal.js', 'js/main.js']
+        script(async defer src=asset(src))

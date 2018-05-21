@@ -1,0 +1,14 @@
+include ../module/modal.pug
+include ../module/input.pug
+
++modal()(id="modal-login")
+  .box.is-warning
+    h4.title Login
+    form(method="post" action="/members/login")
+      +input('Username or email', 'identifier')(type="text" class="input" placeholder="Username or email" required)
+      +input('Password', 'password')(type="password" class="input" placeholder="Password" requiredá)
+      .field.is-grouped.is-grouped-right
+        .control
+          button.button.is-success(type="submit") Submit
+        .control
+          button.button.is-outlined(type="button" class="modal-login-toggle") Cancel

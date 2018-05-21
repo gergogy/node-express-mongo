@@ -1,0 +1,33 @@
+nav.navbar.is-fixed-top.is-dark
+  .container
+    .navbar-brand
+      a.navbar-item(href="/") ShareThings
+      if isLoggedIn
+        span.navbar-item.is-size-7.has-text-weight-light
+          | Hi,&nbsp;#[a(href='/members/profile' class="has-text-warning")= user.username]!
+      span.navbar-burger.burger(data-target="navMenu")
+        each i in [1,2,3]
+          span
+    #navMenu.navbar-menu
+      .navbar-end
+        a.navbar-item.has-text-success(href="https://github.com/gergogy/node-express-pug-mongo")
+          span.icon
+            i.fab.fa-github
+          span See on GitHub
+        span.navbar-item.buttons
+          if !isLoggedIn
+            a.button.is-warning.is-inverted.modal-login-toggle
+              span.icon
+                i.fas.fa-sign-in-alt
+              span.login Login
+            a.button.is-warning.modal-register-toggle
+              span.icon
+                i.fas.fa-user-plus
+              span.register Sign up
+          else
+            a.button.is-warning.is-inverted(href="/members/profile")
+              span.icon
+                i.fas.fa-cog
+            a.button.is-warning.is-inverted(href="/members/logout")
+              span.icon
+                i.fas.fa-sign-out-alt

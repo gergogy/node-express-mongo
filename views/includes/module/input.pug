@@ -1,0 +1,34 @@
+mixin input(label, name)
+  .field
+    unless attributes.type == 'file' || attributes.type == 'checkbox' 
+      label.label= label
+    .control
+      if attributes.type == 'textarea'
+        textarea(class=attributes.class name=name placeholder=attributes.placeholder required=attributes.required)
+      else if attributes.type == 'checkbox'
+        label.checkbox
+          input(type=attributes.type name=name required=attributes.required)
+          =label
+      else if attributes.type == 'select'
+        .select
+          select(name=name required=attributes.required)
+            if attributes.placeholder
+              option(selected)= attributes.placeholder
+            each option in attributes.option
+              option= option
+      else if attributes.type == 'file'
+        .file
+          label.file-label
+            input.file-input(type=attributes.type name=name required=attributes.required)
+            span.file-cta
+              span.file-icon
+                i.fas.fa-upload
+              span.file-label= label
+      else
+        input(class=attributes.class name=name type=attributes.type placeholder=attributes.placeholder required=attributes.required)
+  //- <div class="field">
+//-     <label class="label">Name</label>
+//-     <div class="control">
+//-       <input class="input" type="text" placeholder="Text input">
+//-     </div>
+//-   </div>
