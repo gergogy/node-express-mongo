@@ -16,9 +16,11 @@ generateAssetsVersions(path.join(__dirname, 'assets'), __dirname)
 
 app.disable('x-powered-by');
 app.set('view engine', 'pug')
+app.set('trust proxy', true)
 app.use(session({
   secret: process.env.SECRET || 'secret',
   resave: false,
+  proxy: true,
   saveUninitialized: false,
   cookie: { secure: isProd, maxAge: 3600000 },
   store: new MongoStore({
