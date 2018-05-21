@@ -20,7 +20,8 @@ app.use(session({
   secret: process.env.SECRET || 'secret',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: isProd, maxAge: 3600000 },
+  //cookie: { secure: isProd, maxAge: 3600000 },
+  cookie: {maxAge: 3600000},
   store: new MongoStore({
     url: 'mongodb://localhost:30000/sharethings',
     ttl: 30 * 24 * 60 * 60 // = 30 days.
