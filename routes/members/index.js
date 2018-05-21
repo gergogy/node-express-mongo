@@ -5,8 +5,11 @@ module.exports = router => {
   router.post('/members/register', (req, res) => {
     register(req.body)
       .then(data => {
-        
-        res.send(JSON.stringify(data))
+        req.session.user = {
+          id: user._id,
+          role: 'user'
+        }
+        res.redirect('/')
       })
       .catch(err => {
         res.send(err)
