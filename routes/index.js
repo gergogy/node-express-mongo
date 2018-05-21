@@ -12,7 +12,6 @@ module.exports = router => {
   })
 
   router.get('/', (_, res) => {
-    console.log(res.locals)
     res.render('index')
   })
 

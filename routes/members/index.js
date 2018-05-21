@@ -4,7 +4,7 @@ const register = require('./register')
 module.exports = router => {
   router.post('/members/register', (req, res) => {
     register(req.body)
-      .then(data => {
+      .then(user => {
         req.session.user = {
           id: user._id,
           role: 'user'
@@ -12,7 +12,8 @@ module.exports = router => {
         res.redirect('/')
       })
       .catch(err => {
-        res.send(err)
+        console.log(err)
+        res.send(err.code === 11000 ? 'Username already registered' : 'Unknown error')
       })
   })
   router.post('/members/login', (req, res) => {

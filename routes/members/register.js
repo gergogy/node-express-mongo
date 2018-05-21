@@ -24,5 +24,7 @@ module.exports = data => new Promise((res, rej) => {
     return
   }
 
-  UserModel.create(data).then(user => res(user))
+  UserModel.create(data)
+    .then(user => res(user))
+    .catch(err => rej(err))
 })
